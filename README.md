@@ -29,8 +29,9 @@ npm install -g expo-cli
 
 1. Clone this repository:
    ```bash
-   git clone <repository-url>
-   cd todo-app
+   git clone https://github.com/Sharanmax/to-do.git
+   cd to-do
+
    ```
 
 2. Install the dependencies using Yarn:
