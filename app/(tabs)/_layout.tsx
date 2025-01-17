@@ -7,7 +7,7 @@ import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
 
-// You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
+// TabBarIcon Component
 function TabBarIcon(props: {
   name: React.ComponentProps<typeof FontAwesome>['name'];
   color: string;
@@ -25,12 +25,14 @@ export default function TabLayout() {
         // Disable the static render of the header on web
         // to prevent a hydration error in React Navigation v6.
         headerShown: useClientOnlyValue(false, true),
-      }}>
+      }}
+    >
+      {/* Home Screen */}
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'Home',
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />, // Home Icon
           headerRight: () => (
             <Link href="/modal" asChild>
               <Pressable>
@@ -47,11 +49,22 @@ export default function TabLayout() {
           ),
         }}
       />
+
+      {/* All Todos Screen */}
       <Tabs.Screen
         name="two"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: 'All Todos',
+          tabBarIcon: ({ color }) => <TabBarIcon name="list" color={color} />, // List Icon
+        }}
+      />
+
+      {/* Profile/Logout Screen */}
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'Profile',
+          tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />, // Profile Icon
         }}
       />
     </Tabs>
